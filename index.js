@@ -1,17 +1,39 @@
-
+let firstLayer =  document.querySelector('#tree-layer');
+let secondLayer =  document.querySelector('#first-layer');
+let thirdLayer =  document.querySelector('#second-layer');
+let fourthLayer =  document.querySelector('#third-layer');
+let cover = document.querySelector(".cover");
+let body = document.querySelector("body");
+let scrollPosition;
+let toogleDisplay;
 
 //https://verpex.com/blog/website-tips/basic-guide-to-parallax-scrolling
 document.addEventListener('scroll', function () {
-    let scrollPosition = window.scrollY;
+    scrollPosition = window.scrollY;
 
-    if (scrollPosition < (window.innerHeight + 200)){
-    document.querySelector('.parallax-layer:nth-child(1)').style.transform = 'translateY(' + (-scrollPosition * 0.25) + 'px)';
-    document.querySelector('.parallax-layer:nth-child(2)').style.transform = 'translateY(' + (-scrollPosition * 0.2) + 'px)';
-    document.querySelector('.parallax-layer:nth-child(2)').style.transform = 'translateY(' + (-scrollPosition * 0.01) + 'px)';
+    const secondLayerRect = secondLayer.getBoundingClientRect();
+    const firstLayerRect = firstLayer.getBoundingClientRect();
 
-    document.querySelector('.tree-layer').style.transform = 'translateY(' + (-scrollPosition * 0.8) + 'px)';
-    document.querySelector('.cover').style.transform = 'translateY(' + (-scrollPosition * 0.8) + 'px)';
-    document.querySelector('body').style.transform = 'translateY(' + (scrollPosition * 0.95) + 'px)';
-    
+    cover.style.top = firstLayerRect.bottom + "px";
+    cover.style.height = -firstLayerRect.top+secondLayerRect.top + 100 +"px";
+
+    if (scrollPosition < (window.innerHeight)){
+        body.style.transform = 'translateY('+ (scrollPosition * 1) + 'px)';
+
+        firstLayer.style.transform = 'translateY(' + (-scrollPosition * 1) + 'px)';
+        secondLayer.style.transform = 'translateY(' + (-scrollPosition * 0.4) + 'px)';
+        thirdLayer.style.transform = 'translateY(' + (-scrollPosition * 0.2) + 'px)';
+        fourthLayer.style.transform = 'translateY(' + (-scrollPosition * 0.05) + 'px)';
+
+    }
+
+    if (firstLayerRect.bottom<0){
+        secondLayer.style.display = 'none';
+        toogleDisplay = true;
+    }
+
+    if (toogleDisplay && firstLayerRect.bottom > 0){
+        secondLayer.style.display = 'block';
+        toogleDisplay = false;
     }
 });
