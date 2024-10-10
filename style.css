@@ -41,12 +41,12 @@
 }
 
 #first-layer{
-    background-image: url("Medium_Layer.png");
+    background-image: url("Left_Medium.png");
     z-index: 4;
 }
 
 #second-layer{
-    background-image: url("FirstMedium_Layer.png");
+    background-image: url("Right_Medium.png");
     z-index: 3;
 }
 
