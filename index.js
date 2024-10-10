@@ -6,16 +6,21 @@ let cover = document.querySelector(".cover");
 let body = document.querySelector("body");
 let scrollPosition;
 let toogleDisplay;
+let secondLayerRect;
+let firstLayerRect;
 
-//https://verpex.com/blog/website-tips/basic-guide-to-parallax-scrolling
+function coverDifference(){
+    secondLayerRect = secondLayer.getBoundingClientRect();
+    firstLayerRect = firstLayer.getBoundingClientRect();
+
+    cover.style.top = firstLayerRect.bottom + "px";
+    /*cover.style.height = -firstLayerRect.top+secondLayerRect.top + 10 +"px";*/
+};
+
 document.addEventListener('scroll', function () {
     scrollPosition = window.scrollY;
 
-    const secondLayerRect = secondLayer.getBoundingClientRect();
-    const firstLayerRect = firstLayer.getBoundingClientRect();
-
-    cover.style.top = firstLayerRect.bottom + "px";
-    cover.style.height = -firstLayerRect.top+secondLayerRect.top + 100 +"px";
+    coverDifference();
 
     if (scrollPosition < (window.innerHeight)){
         body.style.transform = 'translateY('+ (scrollPosition * 1) + 'px)';
@@ -36,4 +41,10 @@ document.addEventListener('scroll', function () {
         secondLayer.style.display = 'block';
         toogleDisplay = false;
     }
+
+    document.querySelector('.parallax-container').setAttribute("height", firstLayerRect.bottom + "px")
 });
+
+window.onzoom = ()=> {
+	coverDifference();
+}
