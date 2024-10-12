@@ -26,9 +26,9 @@ document.addEventListener('scroll', function () {
         body.style.transform = 'translateY('+ (scrollPosition * 1) + 'px)';
 
         firstLayer.style.transform = 'translateY(' + (-scrollPosition * 1) + 'px)';
-        secondLayer.style.transform = 'translateY(' + (-scrollPosition * 0.4) + 'px)';
-        thirdLayer.style.transform = 'translateY(' + (-scrollPosition * 0.2) + 'px)';
-        fourthLayer.style.transform = 'translateY(' + (-scrollPosition * 0.05) + 'px)';
+        secondLayer.style.transform = 'translateY(' + (-scrollPosition * 0.7) + 'px)';
+        thirdLayer.style.transform = 'translateY(' + (-scrollPosition * 0.55) + 'px)';
+        fourthLayer.style.transform = 'translateY(' + (-scrollPosition * 0.4) + 'px)';
 
     }
 

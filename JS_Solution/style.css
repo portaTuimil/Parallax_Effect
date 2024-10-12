@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color-scheme: dark;
 }
 
 /* ---------- First Slide ---------- */ 
@@ -36,22 +37,22 @@
 }
 
 #tree-layer{
-    background-image: url("First_Layer.png");
+    background-image: url("../assets/imgs/First_Layer.png");
     z-index: 5;
 }
 
 #first-layer{
-    background-image: url("Left_Medium.png");
+    background-image: url("../assets/imgs/Left_Medium.png");
     z-index: 4;
 }
 
 #second-layer{
-    background-image: url("Right_Medium.png");
+    background-image: url("../assets/imgs/Right_Medium.png");
     z-index: 3;
 }
 
 #third-layer{
-    background-image: url("Last_Layer.png");
+    background-image: url("../assets/imgs/Last_Layer.png");
     z-index: 2;
 }
 
