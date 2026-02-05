@@ -22,6 +22,8 @@ header {
   z-index: -1;
 }
 
+/*https://stackoverflow.com/questions/11313783/i-think-css3-transform-translatez-is-equal-to-scale-by-some-means*/
+/*scale = (perspective/(perspective-translateZ))*/
 .background {
   transform: translateZ(-18px) scale(2.85);
   background-image: url("../assets/imgs/Last_Layer.png");
